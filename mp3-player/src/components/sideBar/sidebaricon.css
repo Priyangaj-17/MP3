@@ -1,0 +1,40 @@
+a{
+    text-decoration: none; 
+}
+.sidebaricon{
+    height: 80px;
+    width: 80px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px auto;
+    color: thistle;
+    transition: all 0.5s ease;
+    background-color: rgb(136, 183, 243,0.0);
+}
+.icon{
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+.title{
+    font-size: 12px;    
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+
+}
+
+.sidebaricon.active{
+    background-color: rgb(136, 183, 243,1);
+    color: white;
+    transform: scale(1.05);
+}
+
+.sidebaricon:hover{
+
+    color: white;
+    transform: scale(1.05);
+}
