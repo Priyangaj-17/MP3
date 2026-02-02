@@ -10,6 +10,8 @@
     justify-content: space-between;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
+    background: #203338;
+background: linear-gradient(90deg, rgba(32, 51, 56, 1) 0%, rgba(89, 102, 217, 1) 20%, rgba(54, 143, 149, 1) 100%, rgba(82, 137, 171, 1) 78%, rgba(237, 221, 83, 1) 98%);
 }
 
 .profileimg{
