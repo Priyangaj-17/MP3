@@ -12,7 +12,7 @@ export default function Player({ isFullPage = false }) {
     id: "player",
   });
 
-  const { currentSong, pauseSong, playSong } = usePlayer();
+  const { currentSong } = usePlayer();
   const [playing, setplaying] = useState(false);
 
   const containerClass = `player-container ${isOver ? "is-over" : ""} ${currentSong ? "is-playing" : ""}`;
