@@ -19,7 +19,7 @@ export default function Library() {
         })
       );
     const handleDrag = (event) => {
-    const { active, over } = event;
+    const { active} = event;
   console.log("Dropped over:", event.over?.id); // Should say "player"
   console.log("Song data:", event.active.data.current?.song);
   

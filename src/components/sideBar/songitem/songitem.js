@@ -29,7 +29,7 @@ function SongItem({ song }) {
       <div>
         <div className="img">
           <img src={song.image}  width={80}
-        height={80}/>
+        height={80} alt=''/>
         </div>
      <div className="each-song" 
       >
