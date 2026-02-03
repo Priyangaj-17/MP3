@@ -2,7 +2,6 @@ import "./sidebar.css"
 import SideBarIcons from "./sidebaricons"
 import { FaPlay } from "react-icons/fa";
 import { IoLibrary } from "react-icons/io5";
-import { MdFavorite } from "react-icons/md";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 
