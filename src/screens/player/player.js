@@ -4,7 +4,6 @@ import { IoPlayCircleOutline } from "react-icons/io5";
 import { IoPauseCircleOutline } from "react-icons/io5";
 
 import "./player.css";
-import { useState } from "react";
 
 // Add 'isFullPage' as a prop
 export default function Player({ isFullPage = false }) {
@@ -12,8 +11,8 @@ export default function Player({ isFullPage = false }) {
     id: "player",
   });
 
-  const { currentSong } = usePlayer();
-  const [playing, setplaying] = useState(false);
+  const { currentSong,playSong,pauseSong ,isPlaying} = usePlayer();
+
 
   const containerClass = `player-container ${isOver ? "is-over" : ""} ${currentSong ? "is-playing" : ""}`;
 
@@ -27,10 +26,11 @@ export default function Player({ isFullPage = false }) {
         </div>
         {currentSong && (
           <div style={{ marginTop: "10px", zIndex: 10 }}>
-            {playing ? (
-              <IoPlayCircleOutline onClick={() => setplaying(false)} className="button-img" />
+            {isPlaying ? (
+              <IoPauseCircleOutline  onClick={pauseSong}  className="button-img" />
             ) : (
-              <IoPauseCircleOutline onClick={() => setplaying(true)} className="button-img" />
+              
+              <IoPlayCircleOutline  onClick={() => playSong(currentSong)} className="button-img" />
             )}
           </div>
         )}

@@ -1,4 +1,4 @@
-
+import { useEffect } from "react";
 import { createContext, useContext, useRef, useState } from "react";
 
 // 1️⃣ Create Context (capitalized by convention)
@@ -13,7 +13,25 @@ export const PlayerProvider = ({ children }) => {
   const [currentSong, setCurrentSong] = useState(null);
    const [isPlaying, setIsPlaying] = useState(false);
 
-  // 5️⃣ Play a song
+
+   
+  // 🔥 Sync React state with actual audio state
+  useEffect(() => {
+    const audio = audioRef.current;
+    const onPlay = () => setIsPlaying(true);
+    const onPause = () => setIsPlaying(false);
+    const onEnded = () => setIsPlaying(false);
+
+    audio.addEventListener("play", onPlay);
+    audio.addEventListener("pause", onPause);
+    audio.addEventListener("ended", onEnded);
+
+    return () => {
+      audio.removeEventListener("play", onPlay);
+      audio.removeEventListener("pause", onPause);
+      audio.removeEventListener("ended", onEnded);
+    };
+  }, []);  // 5️⃣ Play a song
   const playSong = (song) => {
     if (!song) return; // safety check
 
