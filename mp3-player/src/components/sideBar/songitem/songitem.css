@@ -1,0 +1,27 @@
+.song-container{
+    min-width: 150px;
+    min-height: 220px;
+    border-radius: 20px;
+    background-color: rgb(30,42,62);
+    border-color: 1px solid rgb(255, 255, 255,0.5);
+    color:black;
+    box-shadow: 0px 4px 10px grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+background: #2b393d;
+background: linear-gradient(90deg,rgba(43, 57, 61, 1) 0%, rgba(50, 51, 61, 1) 20%, rgba(54, 143, 149, 1) 100%, rgba(82, 137, 171, 1) 78%, rgba(237, 221, 83, 1) 98%);
+}
+
+.each-song{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    color: rgb(116, 132, 173);
+    font-size: 20px;
+
+}
+
+
+

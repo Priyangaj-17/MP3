@@ -1,0 +1,98 @@
+/* player.css */
+
+:root {
+  --player-bg: rgba(255, 255, 255, 0.03);
+  --player-border: rgba(255, 255, 255, 0.1);
+  --accent-glow: #5d5fef;
+  --success-glow: #2ecc71;
+  --text-main: #ffffff;
+}
+
+
+.player-container {
+  position: relative;
+  width: 280px;
+  height: 140px;
+  margin: 30px auto;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  /* Glassmorphism Effect */
+  background: var(--player-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 2px dashed var(--player-border);
+  
+  color: var(--text-main);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+  color: white !important; /* Force text visibility */
+   text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* State: Hovering a song over the box */
+.player-container.is-over {
+  border-style: solid;
+  border-color: var(--success-glow);
+  background: rgba(46, 204, 113, 0.1);
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(46, 204, 113, 0.2);
+}
+
+/* State: When a song is actually playing */
+.player-container.is-playing {
+  border-style: solid;
+  border-color: var(--accent-glow);
+  background: rgba(93, 95, 239, 0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Animated Background Glow */
+.player-container::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(93, 95, 239, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.player-container.is-playing::before {
+  opacity: 1;
+  animation: rotateGlow 10s linear infinite;
+}
+
+@keyframes rotateGlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.player-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-align: center;
+  z-index: 1;
+  pointer-events: none; /* Prevents text from blocking the drop detection */
+}
+
+.button-img {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  color: white;
+}
+
+.button-img:hover {
+   width: 50px;
+  height: 50px;
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+}
